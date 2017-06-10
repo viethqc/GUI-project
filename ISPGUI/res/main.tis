@@ -1,0 +1,16 @@
+include "moveable-view.tis";
+
+self.ready = function() {
+	const body = $(body);	
+	var m_iCurrentSelect = 1;
+	var m_iTimeDuration = 0.5;
+	view.windowResizeable = true;
+
+	//==============================Set move able dialog
+	movableView();
+	
+	//=================================Set center dialog
+	var (sx,sy,sw,sh) = view.screenBox(#workarea,#rectw);
+	var (w,h) = self.$(body).box(#dimension);
+	view.move(sx + (sw - w) / 2, sy + (sh - h) / 2, w, h);
+}
